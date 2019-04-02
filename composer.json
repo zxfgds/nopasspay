@@ -1,0 +1,19 @@
+{
+    "name": "xiaowas\/nopasspay",
+    "description": "支付宝、微信免签支付",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xiaowas",
+            "email": "413964626@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xiaowas\\Nopasspay\\": "src"
+        }
+    }
+}
