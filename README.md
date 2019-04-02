@@ -9,7 +9,7 @@
 $ composer require xiaowas/nopasspay -vvv
 ```
 
-## 使用方法
+#### 使用方法
 
 等待下载安装完成，需要在`config/app.php`中注册服务提供者同时注册下相应门面：
 ```php
@@ -29,7 +29,7 @@ $ composer require xiaowas/nopasspay -vvv
 php artisan vendor:publish
 ```
 
-###配置文件
+####配置文件
 
 ```
 return [
@@ -59,7 +59,7 @@ return [
 
 
 
-##代码示例
+####代码示例
 
 #### 请求参数
 
