@@ -60,7 +60,7 @@ class Nopasspay
         }
 
         //第一步，检测商户KEY是否一致
-        if ($data['account_key'] != Config::get('nopasspay.data.s_key')) exit('error:key');
+        if ($data['account_key'] != Config::get('nopasspay.account_key')) exit('error:key');
         //第二步，验证签名是否一致
         if (Sign::sign(Config::get('nopasspay.data.s_key'), ['amount' => $data['amount'], 'out_trade_no' => $data['out_trade_no']]) != $data['sign']) exit('error:sign');
 

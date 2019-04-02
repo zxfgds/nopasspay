@@ -4,7 +4,8 @@ return [
     'pay_way' => 'http://pp.ana51.com/gateway/pay/automaticAlipay.do',
     //请求url
     'gate_way' => 'http://pp.ana51.com/gateway/index/checkpoint.do',
-
+    //商户名
+    'account_key' => 'ceshi',
     "data" => [
         //商户ID->到平台首页自行复制粘贴
         'account_id' => '2',
