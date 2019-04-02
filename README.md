@@ -29,7 +29,7 @@ $ composer require xiaowas/nopasspay -vvv
 php artisan vendor:publish
 ```
 
-####配置文件
+#### 配置文件
 
 ```
 return [
@@ -59,7 +59,7 @@ return [
 
 
 
-####代码示例
+### 代码示例
 
 #### 请求参数
 
@@ -73,7 +73,7 @@ return [
 
 ````
 
-####直接跳转到支付页面（无返回参数）
+直接跳转到支付页面（无返回参数）
 
 ````
  $nopassword = new Nopasspay();
@@ -81,7 +81,7 @@ return [
 
 ````
 
-####返回数据自行处理
+返回数据自行处理
 
 ````
 
@@ -89,7 +89,7 @@ return [
 
 ````
 
-#####返回参数
+返回参数
 
 ```
   array:3 [▼
@@ -104,7 +104,7 @@ return [
 
 
 
-#####异常
+##### 异常
 
 ````
 
