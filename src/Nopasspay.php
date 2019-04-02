@@ -12,6 +12,7 @@ use GuzzleHttp\Client;
 use Xiaowas\Nopasspay\Exceptions\HttpException;
 use Xiaowas\Nopasspay\Exceptions\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class Nopasspay
@@ -42,12 +43,28 @@ class Nopasspay
 
         $data = (array)$res['data'];
         $orderId = $data['order_id'];
-        
+
         return [
             'msg' => $res['msg'],
             'code' => 200,
             'orderId' => $orderId
         ];
+    }
+
+    public function verify($data = null)
+    {
+
+        if (is_null($data)) {
+            $request = Request::createFromGlobals();
+            $data = $request->request->count() > 0 ? $request->request->all() : $request->query->all();
+        }
+
+        //第一步，检测商户KEY是否一致
+        if ($data['account_key'] != Config::get('nopasspay.data.s_key')) exit('error:key');
+        //第二步，验证签名是否一致
+        if (Sign::sign(Config::get('nopasspay.data.s_key'), ['amount' => $data['amount'], 'out_trade_no' => $data['out_trade_no']]) != $data['sign']) exit('error:sign');
+
+        return true;
     }
 
     public function json($data)

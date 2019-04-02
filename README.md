@@ -32,7 +32,15 @@ php artisan vendor:publish
 #### 配置文件
 
 ```
+
+
 return [
+
+    //支付请求url
+    'pay_way' => 'http://pp.ana51.com/gateway/pay/automaticAlipay.do',
+    //请求url
+    'gate_way' => 'http://pp.ana51.com/gateway/index/checkpoint.do',
+    
     "data" => [
         //商户ID->到平台首页自行复制粘贴
         'account_id' => '2',
@@ -101,7 +109,14 @@ return [
 ```
 
 
+##### 检验是否付款状态
 
+```
+    $nopassword = new Nopasspay();
+
+    $nopassword->verify(); //返回真假值
+
+```
 
 
 ##### 异常
@@ -121,11 +136,6 @@ return [
  }
 ````
 
-
-## 联系方式
-
-邮箱： 413964626@qq.com 
-QQ:   413964626
 
 ## License
 
